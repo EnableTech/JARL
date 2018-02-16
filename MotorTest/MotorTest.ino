@@ -54,8 +54,8 @@ DRV8825 stepper(MOTOR_STEPS, DIR, STEP, MODE0, MODE1, MODE2);
 
 int r = 0;
 int l = 0;
-int microstep = 8;
-int stp = 10;
+int microstep = 32;
+int stp = 1;
 
 void setup() {
     /*

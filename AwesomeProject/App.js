@@ -11,7 +11,8 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableOpacity
 } from 'react-native';
 
 
@@ -98,21 +99,81 @@ export default class App extends Component<Props> {
     )
   }
 
+  // render() {
+  //   return (
+  //     <View style={styles.container}>
+  //       <Text style={styles.welcome}>
+  //         Uh oh, not updating
+  //       </Text>
+  //       <Text style={styles.welcome}>
+  //         HELLO WORLD!!!
+  //       </Text>
+	// 	<Button
+	// 	  onPress={this.right}
+	// 	  title="Right"
+	// 	  color="#841584"
+	// 	  accessibilityLabel="Learn more about this purple button"
+	// 	/>
+  //     </View>
+  //   );
+  // }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Uh oh, not updating
+          Welcome to JARL!
         </Text>
-        <Text style={styles.welcome}>
-          HELLO WORLD!!!
+        <Text style={styles.instructions}>
+          To change direction, press the Forward, Backward, Left, or Right arrow
         </Text>
-		<Button
-		  onPress={this.right}
-		  title="Right"
-		  color="#841584"
-		  accessibilityLabel="Learn more about this purple button"
-		/>
+        <Text style={styles.instructions}>
+          To move up or down, press the Up or Down arrow
+        </Text>
+        <Text style={styles.instructions}>
+          To stop JARL, press the stop button
+        </Text>
+        <TouchableOpacity
+          style={styles.buttonForward}
+          onPress={this.onPress}
+        >
+        <Text style={styles.buttonText}>F</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonBack}
+          onPress={this.onPress}
+        >
+        <Text style={styles.buttonText}>B</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonLeft}
+          onPress={this.onPress}
+        >
+        <Text style={styles.buttonText}>L</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonRight}
+          onPress={this.onPress}
+        >
+        <Text style={styles.buttonText}>R</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonUp}
+          onPress={this.onPress}
+        >
+        <Text style={styles.buttonText}>U</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonDown}
+          onPress={this.onPress}
+        >
+        <Text style={styles.buttonDText}>D</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.buttonStop}
+          onPress={this.onPress}
+        >
+        <Text style={styles.buttonText}>STOP</Text>
+        </TouchableOpacity>
       </View>
     );
   }

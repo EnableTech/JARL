@@ -109,10 +109,12 @@ void loop() {
     // In 1:8 microstepping mode, one revolution takes 8 times as many microsteps
     if(r != l){
         if(r == HIGH){
-            stepper.move(microstep * stp);    // forward revolution
+//            stepper.move(microstep * stp);    // forward revolution
+                stepper.rotate(1);
         }
         else{
-            stepper.move(-microstep * stp);   // reverse revolution
+//            stepper.move(-microstep * stp);   // reverse revolution
+                stepper.rotate(-1);
         }
     }
     

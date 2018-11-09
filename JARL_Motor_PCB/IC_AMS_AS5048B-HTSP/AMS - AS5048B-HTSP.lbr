@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle>
+    <drawing>
+        <grid unitdist="mm" unit="mm"/>
+        <layers>
+            <layer name="Top" color="4" number="1" visible="yes" active="yes" fill="1"/>
+            <layer name="tKeepout" color="0" number="4" visible="yes" active="yes" fill="1"/>
+            <layer name="Bottom" color="4" number="16" visible="yes" active="yes" fill="1"/>
+            <layer name="tPlace" color="7" number="21" visible="yes" active="yes" fill="1"/>
+            <layer name="bPlace" color="7" number="22" visible="yes" active="yes" fill="1"/>
+            <layer name="tNames" color="7" number="25" visible="yes" active="yes" fill="1"/>
+            <layer name="bNames" color="7" number="26" visible="yes" active="yes" fill="1"/>
+            <layer name="tValues" color="7" number="27" visible="yes" active="yes" fill="1"/>
+            <layer name="bValues" color="7" number="28" visible="yes" active="yes" fill="1"/>
+            <layer name="tStop" color="7" number="29" visible="yes" active="yes" fill="1"/>
+            <layer name="bStop" color="7" number="30" visible="yes" active="yes" fill="1"/>
+            <layer name="tCream" color="7" number="31" visible="yes" active="yes" fill="1"/>
+            <layer name="bCream" color="7" number="32" visible="yes" active="yes" fill="1"/>
+            <layer name="bKeepout" color="0" number="40" visible="yes" active="yes" fill="1"/>
+            <layer name="tRestrict" color="4" number="41" visible="yes" active="yes" fill="1"/>
+            <layer name="bRestrict" color="4" number="42" visible="yes" active="yes" fill="1"/>
+            <layer name="tDocu" color="7" number="51" visible="yes" active="yes" fill="1"/>
+            <layer name="bDocu" color="7" number="52" visible="yes" active="yes" fill="1"/>
+            <layer name="Nets" color="2" number="91" visible="yes" active="yes" fill="1"/>
+            <layer name="Busses" color="1" number="92" visible="yes" active="yes" fill="1"/>
+            <layer name="Pins" color="2" number="93" visible="yes" active="yes" fill="1"/>
+            <layer name="Symbols" color="4" number="94" visible="yes" active="yes" fill="1"/>
+            <layer name="Names" color="7" number="95" visible="yes" active="yes" fill="1"/>
+            <layer name="Values" color="7" number="96" visible="yes" active="yes" fill="1"/>
+            <layer name="Info" color="7" number="97" visible="yes" active="yes" fill="1"/>
+            <layer name="Guide" color="6" number="98" visible="yes" active="yes" fill="1"/>
+        </layers>
+        <library name="Upverter Library">
+            <description>Upverter Parts Library
+
+Created by Upverter.com</description>
+            <packages>
+                <package name="AMS_AS5048B-HTSP_0">
+                    <description>AMS-AS5048B-TSSOP-14</description>
+                    <wire layer="21" y2="-2.55" width="0.15" x2="1.8" y1="-2.55" x1="-1.8"/>
+                    <wire layer="21" y2="2.55" width="0.15" x2="1.8" y1="2.55" x1="-1.8"/>
+                    <wire layer="21" y2="2.55" width="0.15" x2="1.8" y1="-2.55" x1="1.8"/>
+                    <wire layer="21" y2="2.55" width="0.15" x2="-1.8" y1="-2.55" x1="-1.8"/>
+                    <wire layer="51" y2="-2.55" width="0.1" x2="2.25" y1="-2.55" x1="-2.25"/>
+                    <wire layer="51" y2="2.55" width="0.1" x2="2.25" y1="2.55" x1="-2.25"/>
+                    <wire layer="51" y2="2.55" width="0.1" x2="2.25" y1="-2.55" x1="2.25"/>
+                    <wire layer="51" y2="2.55" width="0.1" x2="-2.25" y1="-2.55" x1="-2.25"/>
+                    <wire layer="41" y2="2.65" width="0.1" x2="-3.55" y1="-2.65" x1="-3.55"/>
+                    <wire layer="41" y2="2.65" width="0.1" x2="3.55" y1="2.65" x1="-3.55"/>
+                    <wire layer="41" y2="-2.65" width="0.1" x2="3.55" y1="2.65" x1="3.55"/>
+                    <wire layer="41" y2="-2.65" width="0.1" x2="-3.55" y1="-2.65" x1="3.55"/>
+                    <text layer="25" align="bottom-left" y="2.8" x="-4.55" rot="R0" size="1.0">&gt;NAME</text>
+                    <circle y="1.55" x="-0.8" layer="21" radius="0.3" width="0.6"/>
+                    <circle y="2.675" x="-2.825" layer="21" radius="0.125" width="0.25"/>
+                    <circle y="1.65" x="-1.35" layer="51" radius="0.5" width="0.1"/>
+                    <smd layer="1" thermals="yes" name="8" stop="yes" roundness="100" dx="0.35" dy="1.25" y="-1.95" x="2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="9" stop="yes" roundness="100" dx="0.35" dy="1.25" y="-1.3" x="2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="10" stop="yes" roundness="100" dx="0.35" dy="1.25" y="-0.65" x="2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="11" stop="yes" roundness="100" dx="0.35" dy="1.25" y="0.0" x="2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="12" stop="yes" roundness="100" dx="0.35" dy="1.25" y="0.65" x="2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="13" stop="yes" roundness="100" dx="0.35" dy="1.25" y="1.3" x="2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="14" stop="yes" roundness="100" dx="0.35" dy="1.25" y="1.95" x="2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="7" stop="yes" roundness="100" dx="0.35" dy="1.25" y="-1.95" x="-2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="6" stop="yes" roundness="100" dx="0.35" dy="1.25" y="-1.3" x="-2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="5" stop="yes" roundness="100" dx="0.35" dy="1.25" y="-0.65" x="-2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="4" stop="yes" roundness="100" dx="0.35" dy="1.25" y="0.0" x="-2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="3" stop="yes" roundness="100" dx="0.35" dy="1.25" y="0.65" x="-2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="2" stop="yes" roundness="100" dx="0.35" dy="1.25" y="1.3" x="-2.825" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="1" stop="yes" roundness="100" dx="0.35" dy="1.25" y="1.95" x="-2.825" rot="R90" cream="yes"/>
+                </package>
+                <package name="AMS_AS5048B-HTSP_1">
+                    <description>AMS-AS5048B-TSSOP-14</description>
+                    <wire layer="21" y2="-2.55" width="0.15" x2="1.7" y1="-2.55" x1="-1.7"/>
+                    <wire layer="21" y2="2.55" width="0.15" x2="1.7" y1="2.55" x1="-1.7"/>
+                    <wire layer="21" y2="2.55" width="0.15" x2="1.7" y1="-2.55" x1="1.7"/>
+                    <wire layer="21" y2="2.55" width="0.15" x2="-1.7" y1="-2.55" x1="-1.7"/>
+                    <wire layer="51" y2="-2.55" width="0.1" x2="2.25" y1="-2.55" x1="-2.25"/>
+                    <wire layer="51" y2="2.55" width="0.1" x2="2.25" y1="2.55" x1="-2.25"/>
+                    <wire layer="51" y2="2.55" width="0.1" x2="2.25" y1="-2.55" x1="2.25"/>
+                    <wire layer="51" y2="2.55" width="0.1" x2="-2.25" y1="-2.55" x1="-2.25"/>
+                    <wire layer="41" y2="2.8" width="0.1" x2="-3.9" y1="-2.8" x1="-3.9"/>
+                    <wire layer="41" y2="2.8" width="0.1" x2="3.9" y1="2.8" x1="-3.9"/>
+                    <wire layer="41" y2="-2.8" width="0.1" x2="3.9" y1="2.8" x1="3.9"/>
+                    <wire layer="41" y2="-2.8" width="0.1" x2="-3.9" y1="-2.8" x1="3.9"/>
+                    <text layer="25" align="bottom-left" y="2.8" x="-4.9" rot="R0" size="1.0">&gt;NAME</text>
+                    <circle y="1.55" x="-0.7" layer="21" radius="0.3" width="0.6"/>
+                    <circle y="2.675" x="-2.875" layer="21" radius="0.125" width="0.25"/>
+                    <circle y="1.65" x="-1.35" layer="51" radius="0.5" width="0.1"/>
+                    <smd layer="1" thermals="yes" name="8" stop="yes" roundness="100" dx="0.35" dy="1.55" y="-1.95" x="2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="9" stop="yes" roundness="100" dx="0.35" dy="1.55" y="-1.3" x="2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="10" stop="yes" roundness="100" dx="0.35" dy="1.55" y="-0.65" x="2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="11" stop="yes" roundness="100" dx="0.35" dy="1.55" y="-0.0" x="2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="12" stop="yes" roundness="100" dx="0.35" dy="1.55" y="0.65" x="2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="13" stop="yes" roundness="100" dx="0.35" dy="1.55" y="1.3" x="2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="14" stop="yes" roundness="100" dx="0.35" dy="1.55" y="1.95" x="2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="7" stop="yes" roundness="100" dx="0.35" dy="1.55" y="-1.95" x="-2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="6" stop="yes" roundness="100" dx="0.35" dy="1.55" y="-1.3" x="-2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="5" stop="yes" roundness="100" dx="0.35" dy="1.55" y="-0.65" x="-2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="4" stop="yes" roundness="100" dx="0.35" dy="1.55" y="-0.0" x="-2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="3" stop="yes" roundness="100" dx="0.35" dy="1.55" y="0.65" x="-2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="2" stop="yes" roundness="100" dx="0.35" dy="1.55" y="1.3" x="-2.875" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="1" stop="yes" roundness="100" dx="0.35" dy="1.55" y="1.95" x="-2.875" rot="R90" cream="yes"/>
+                </package>
+                <package name="AMS_AS5048B-HTSP_2">
+                    <description>AMS-AS5048B-TSSOP-14</description>
+                    <wire layer="21" y2="-2.55" width="0.15" x2="1.6" y1="-2.55" x1="-1.6"/>
+                    <wire layer="21" y2="2.55" width="0.15" x2="1.6" y1="2.55" x1="-1.6"/>
+                    <wire layer="21" y2="2.55" width="0.15" x2="1.6" y1="-2.55" x1="1.6"/>
+                    <wire layer="21" y2="2.55" width="0.15" x2="-1.6" y1="-2.55" x1="-1.6"/>
+                    <wire layer="51" y2="-2.55" width="0.1" x2="2.25" y1="-2.55" x1="-2.25"/>
+                    <wire layer="51" y2="2.55" width="0.1" x2="2.25" y1="2.55" x1="-2.25"/>
+                    <wire layer="51" y2="2.55" width="0.1" x2="2.25" y1="-2.55" x1="2.25"/>
+                    <wire layer="51" y2="2.55" width="0.1" x2="-2.25" y1="-2.55" x1="-2.25"/>
+                    <wire layer="41" y2="3.05" width="0.1" x2="-4.35" y1="-3.05" x1="-4.35"/>
+                    <wire layer="41" y2="3.05" width="0.1" x2="4.35" y1="3.05" x1="-4.35"/>
+                    <wire layer="41" y2="-3.05" width="0.1" x2="4.35" y1="3.05" x1="4.35"/>
+                    <wire layer="41" y2="-3.05" width="0.1" x2="-4.35" y1="-3.05" x1="4.35"/>
+                    <text layer="25" align="bottom-left" y="3.05" x="-5.35" rot="R0" size="1.0">&gt;NAME</text>
+                    <circle y="1.55" x="-0.6" layer="21" radius="0.3" width="0.6"/>
+                    <circle y="2.675" x="-2.925" layer="21" radius="0.125" width="0.25"/>
+                    <circle y="1.65" x="-1.35" layer="51" radius="0.5" width="0.1"/>
+                    <smd layer="1" thermals="yes" name="8" stop="yes" roundness="100" dx="0.35" dy="1.85" y="-1.95" x="2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="9" stop="yes" roundness="100" dx="0.35" dy="1.85" y="-1.3" x="2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="10" stop="yes" roundness="100" dx="0.35" dy="1.85" y="-0.65" x="2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="11" stop="yes" roundness="100" dx="0.35" dy="1.85" y="-0.0" x="2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="12" stop="yes" roundness="100" dx="0.35" dy="1.85" y="0.65" x="2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="13" stop="yes" roundness="100" dx="0.35" dy="1.85" y="1.3" x="2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="14" stop="yes" roundness="100" dx="0.35" dy="1.85" y="1.95" x="2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="7" stop="yes" roundness="100" dx="0.35" dy="1.85" y="-1.95" x="-2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="6" stop="yes" roundness="100" dx="0.35" dy="1.85" y="-1.3" x="-2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="5" stop="yes" roundness="100" dx="0.35" dy="1.85" y="-0.65" x="-2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="4" stop="yes" roundness="100" dx="0.35" dy="1.85" y="-0.0" x="-2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="3" stop="yes" roundness="100" dx="0.35" dy="1.85" y="0.65" x="-2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="2" stop="yes" roundness="100" dx="0.35" dy="1.85" y="1.3" x="-2.925" rot="R90" cream="yes"/>
+                    <smd layer="1" thermals="yes" name="1" stop="yes" roundness="100" dx="0.35" dy="1.85" y="1.95" x="-2.925" rot="R90" cream="yes"/>
+                </package>
+            </packages>
+            <symbols>
+                <symbol name="AMS_AS5048B-HTSP_0_0">
+                    <description>AMS-AS5048B-TSSOP-14</description>
+                    <wire layer="94" y2="-5.08" width="0.508" x2="0.0" y1="-33.02" x1="0.0"/>
+                    <wire layer="94" y2="-5.08" width="0.508" x2="20.32" y1="-5.08" x1="0.0"/>
+                    <wire layer="94" y2="-33.02" width="0.508" x2="20.32" y1="-5.08" x1="20.32"/>
+                    <wire layer="94" y2="-33.02" width="0.508" x2="0.0" y1="-33.02" x1="20.32"/>
+                    <wire layer="94" y2="-10.16" width="0.15" x2="0.0" y1="-10.16" x1="0.0"/>
+                    <wire layer="94" y2="-7.62" width="0.15" x2="0.0" y1="-7.62" x1="0.0"/>
+                    <wire layer="94" y2="-17.78" width="0.15" x2="0.0" y1="-17.78" x1="0.0"/>
+                    <wire layer="94" y2="-15.24" width="0.15" x2="0.0" y1="-15.24" x1="0.0"/>
+                    <wire layer="94" y2="-12.7" width="0.15" x2="20.32" y1="-12.7" x1="20.32"/>
+                    <wire layer="94" y2="-15.24" width="0.15" x2="20.32" y1="-15.24" x1="20.32"/>
+                    <wire layer="94" y2="-17.78" width="0.15" x2="20.32" y1="-17.78" x1="20.32"/>
+                    <wire layer="94" y2="-20.32" width="0.15" x2="20.32" y1="-20.32" x1="20.32"/>
+                    <wire layer="94" y2="-22.86" width="0.15" x2="20.32" y1="-22.86" x1="20.32"/>
+                    <wire layer="94" y2="-25.4" width="0.15" x2="20.32" y1="-25.4" x1="20.32"/>
+                    <wire layer="94" y2="-30.48" width="0.15" x2="0.0" y1="-30.48" x1="0.0"/>
+                    <wire layer="94" y2="-27.94" width="0.15" x2="0.0" y1="-27.94" x1="0.0"/>
+                    <wire layer="94" y2="-30.48" width="0.15" x2="20.32" y1="-30.48" x1="20.32"/>
+                    <wire layer="94" y2="-7.62" width="0.15" x2="20.32" y1="-7.62" x1="20.32"/>
+                    <text layer="95" align="top-left" y="-2.54" x="0.0" rot="R0" size="2.54">&gt;NAME</text>
+                    <text layer="95" align="top-left" y="-38.1" x="0.0" rot="R0" size="2.54">AS5048B-HTSP</text>
+                    <pin direction="io" name="SDA" visible="both" length="middle" y="-10.16" x="-5.08"/>
+                    <pin direction="in" name="SCL" visible="both" length="middle" y="-7.62" x="-5.08"/>
+                    <pin direction="in" name="A2" visible="both" length="middle" y="-17.78" x="-5.08"/>
+                    <pin direction="in" name="A1" visible="both" length="middle" y="-15.24" x="-5.08"/>
+                    <pin direction="in" name="2_TEST" visible="both" length="middle" y="-12.7" x="25.4" rot="R180"/>
+                    <pin direction="in" name="3_TEST" visible="both" length="middle" y="-15.24" x="25.4" rot="R180"/>
+                    <pin direction="in" name="4_TEST" visible="both" length="middle" y="-17.78" x="25.4" rot="R180"/>
+                    <pin direction="in" name="5_TEST" visible="both" length="middle" y="-20.32" x="25.4" rot="R180"/>
+                    <pin direction="in" name="6_TEST" visible="both" length="middle" y="-22.86" x="25.4" rot="R180"/>
+                    <pin direction="in" name="1_TEST" visible="both" length="middle" y="-25.4" x="25.4" rot="R180"/>
+                    <pin direction="pwr" name="VDD5V" visible="both" length="middle" y="-30.48" x="-5.08"/>
+                    <pin direction="pwr" name="VDD3V" visible="both" length="middle" y="-27.94" x="-5.08"/>
+                    <pin direction="pwr" name="GND" visible="both" length="middle" y="-30.48" x="25.4" rot="R180"/>
+                    <pin direction="out" name="PWM" visible="both" length="middle" y="-7.62" x="25.4" rot="R180"/>
+                </symbol>
+            </symbols>
+            <devicesets>
+                <deviceset prefix="U" name="AMS_AS5048B-HTSP">
+                    <description>AMS-AS5048B-TSSOP-14</description>
+                    <gates>
+                        <gate name="G$0" symbol="AMS_AS5048B-HTSP_0_0" x="0"/>
+                    </gates>
+                    <devices>
+                        <device name="AMS_AS5048B-HTSP_0_0" package="AMS_AS5048B-HTSP_0">
+                            <connects>
+                                <connect gate="G$0" pad="1" pin="SDA"/>
+                                <connect gate="G$0" pad="10" pin="1_TEST"/>
+                                <connect gate="G$0" pad="11" pin="VDD5V"/>
+                                <connect gate="G$0" pad="12" pin="VDD3V"/>
+                                <connect gate="G$0" pad="13" pin="GND"/>
+                                <connect gate="G$0" pad="14" pin="PWM"/>
+                                <connect gate="G$0" pad="2" pin="SCL"/>
+                                <connect gate="G$0" pad="3" pin="A2"/>
+                                <connect gate="G$0" pad="4" pin="A1"/>
+                                <connect gate="G$0" pad="5" pin="2_TEST"/>
+                                <connect gate="G$0" pad="6" pin="3_TEST"/>
+                                <connect gate="G$0" pad="7" pin="4_TEST"/>
+                                <connect gate="G$0" pad="8" pin="5_TEST"/>
+                                <connect gate="G$0" pad="9" pin="6_TEST"/>
+                            </connects>
+                            <technologies>
+                                <technology>
+                                    <attribute name="ciiva_ids" value="4309606"/>
+                                    <attribute name="Package_Version" value="Rev. 2.7, 10/2010"/>
+                                    <attribute name="Component_Link_1_Description" value="Manufacturer URL"/>
+                                    <attribute name="vault_guid" value="D2F2B1B8-6CC1-41D2-B61F-B80A391146BC"/>
+                                    <attribute name="Mounting_Technology" value="Surface Mount"/>
+                                    <attribute name="MPN" value="AS5048B-HTSP"/>
+                                    <attribute name="Component_Link_1_URL" value="www.ams.com"/>
+                                    <attribute name="imported" value="yes"/>
+                                    <attribute name="prefix" value="U"/>
+                                    <attribute name="import_ts" value="1521856276"/>
+                                    <attribute name="Datasheet_Version" value="Rev. 1.3"/>
+                                    <attribute name="release_date" value="1394513987"/>
+                                    <attribute name="datasheet" value="http://www.ams.com/eng/content/download/438523/1341157/143016"/>
+                                    <attribute name="Code__JEDEC" value="MO-153"/>
+                                    <attribute name="vault_revision" value="BD625296-4CE3-41FD-9A5A-ADE005AEECC9"/>
+                                    <attribute name="footprint_variant_name_0" value="Level C"/>
+                                    <attribute name="Package_Description" value="14-Pin Small Outline Package, 5 x 4.4 mm Body, 0.65 mm Pitch"/>
+                                    <attribute name="imported_from" value="vault"/>
+                                    <attribute name="Output" value="IÂ2C, PWM"/>
+                                    <attribute name="Resolution" value="14-bit"/>
+                                    <attribute name="MF" value="AMS"/>
+                                    <attribute name="Supply_Voltage_V" value="3.3 or 5.0"/>
+                                    <attribute name="footprint_variant_name_2" value="Level A"/>
+                                    <attribute name="footprint_variant_name_1" value="Level B"/>
+                                    <attribute name="Features" value="IÂ2C, PWM, In System Programmable"/>
+                                    <attribute name="package" value="TSSOP-14"/>
+                                </technology>
+                            </technologies>
+                        </device>
+                        <device name="AMS_AS5048B-HTSP_0_1" package="AMS_AS5048B-HTSP_1">
+                            <connects>
+                                <connect gate="G$0" pad="1" pin="SDA"/>
+                                <connect gate="G$0" pad="10" pin="1_TEST"/>
+                                <connect gate="G$0" pad="11" pin="VDD5V"/>
+                                <connect gate="G$0" pad="12" pin="VDD3V"/>
+                                <connect gate="G$0" pad="13" pin="GND"/>
+                                <connect gate="G$0" pad="14" pin="PWM"/>
+                                <connect gate="G$0" pad="2" pin="SCL"/>
+                                <connect gate="G$0" pad="3" pin="A2"/>
+                                <connect gate="G$0" pad="4" pin="A1"/>
+                                <connect gate="G$0" pad="5" pin="2_TEST"/>
+                                <connect gate="G$0" pad="6" pin="3_TEST"/>
+                                <connect gate="G$0" pad="7" pin="4_TEST"/>
+                                <connect gate="G$0" pad="8" pin="5_TEST"/>
+                                <connect gate="G$0" pad="9" pin="6_TEST"/>
+                            </connects>
+                            <technologies>
+                                <technology>
+                                    <attribute name="ciiva_ids" value="4309606"/>
+                                    <attribute name="Package_Version" value="Rev. 2.7, 10/2010"/>
+                                    <attribute name="Component_Link_1_Description" value="Manufacturer URL"/>
+                                    <attribute name="vault_guid" value="D2F2B1B8-6CC1-41D2-B61F-B80A391146BC"/>
+                                    <attribute name="Mounting_Technology" value="Surface Mount"/>
+                                    <attribute name="MPN" value="AS5048B-HTSP"/>
+                                    <attribute name="Component_Link_1_URL" value="www.ams.com"/>
+                                    <attribute name="imported" value="yes"/>
+                                    <attribute name="prefix" value="U"/>
+                                    <attribute name="import_ts" value="1521856276"/>
+                                    <attribute name="Datasheet_Version" value="Rev. 1.3"/>
+                                    <attribute name="release_date" value="1394513987"/>
+                                    <attribute name="datasheet" value="http://www.ams.com/eng/content/download/438523/1341157/143016"/>
+                                    <attribute name="Code__JEDEC" value="MO-153"/>
+                                    <attribute name="vault_revision" value="BD625296-4CE3-41FD-9A5A-ADE005AEECC9"/>
+                                    <attribute name="footprint_variant_name_0" value="Level C"/>
+                                    <attribute name="Package_Description" value="14-Pin Small Outline Package, 5 x 4.4 mm Body, 0.65 mm Pitch"/>
+                                    <attribute name="imported_from" value="vault"/>
+                                    <attribute name="Output" value="IÂ2C, PWM"/>
+                                    <attribute name="Resolution" value="14-bit"/>
+                                    <attribute name="MF" value="AMS"/>
+                                    <attribute name="Supply_Voltage_V" value="3.3 or 5.0"/>
+                                    <attribute name="footprint_variant_name_2" value="Level A"/>
+                                    <attribute name="footprint_variant_name_1" value="Level B"/>
+                                    <attribute name="Features" value="IÂ2C, PWM, In System Programmable"/>
+                                    <attribute name="package" value="TSSOP-14"/>
+                                </technology>
+                            </technologies>
+                        </device>
+                        <device name="AMS_AS5048B-HTSP_0_2" package="AMS_AS5048B-HTSP_2">
+                            <connects>
+                                <connect gate="G$0" pad="1" pin="SDA"/>
+                                <connect gate="G$0" pad="10" pin="1_TEST"/>
+                                <connect gate="G$0" pad="11" pin="VDD5V"/>
+                                <connect gate="G$0" pad="12" pin="VDD3V"/>
+                                <connect gate="G$0" pad="13" pin="GND"/>
+                                <connect gate="G$0" pad="14" pin="PWM"/>
+                                <connect gate="G$0" pad="2" pin="SCL"/>
+                                <connect gate="G$0" pad="3" pin="A2"/>
+                                <connect gate="G$0" pad="4" pin="A1"/>
+                                <connect gate="G$0" pad="5" pin="2_TEST"/>
+                                <connect gate="G$0" pad="6" pin="3_TEST"/>
+                                <connect gate="G$0" pad="7" pin="4_TEST"/>
+                                <connect gate="G$0" pad="8" pin="5_TEST"/>
+                                <connect gate="G$0" pad="9" pin="6_TEST"/>
+                            </connects>
+                            <technologies>
+                                <technology>
+                                    <attribute name="ciiva_ids" value="4309606"/>
+                                    <attribute name="Package_Version" value="Rev. 2.7, 10/2010"/>
+                                    <attribute name="Component_Link_1_Description" value="Manufacturer URL"/>
+                                    <attribute name="vault_guid" value="D2F2B1B8-6CC1-41D2-B61F-B80A391146BC"/>
+                                    <attribute name="Mounting_Technology" value="Surface Mount"/>
+                                    <attribute name="MPN" value="AS5048B-HTSP"/>
+                                    <attribute name="Component_Link_1_URL" value="www.ams.com"/>
+                                    <attribute name="imported" value="yes"/>
+                                    <attribute name="prefix" value="U"/>
+                                    <attribute name="import_ts" value="1521856276"/>
+                                    <attribute name="Datasheet_Version" value="Rev. 1.3"/>
+                                    <attribute name="release_date" value="1394513987"/>
+                                    <attribute name="datasheet" value="http://www.ams.com/eng/content/download/438523/1341157/143016"/>
+                                    <attribute name="Code__JEDEC" value="MO-153"/>
+                                    <attribute name="vault_revision" value="BD625296-4CE3-41FD-9A5A-ADE005AEECC9"/>
+                                    <attribute name="footprint_variant_name_0" value="Level C"/>
+                                    <attribute name="Package_Description" value="14-Pin Small Outline Package, 5 x 4.4 mm Body, 0.65 mm Pitch"/>
+                                    <attribute name="imported_from" value="vault"/>
+                                    <attribute name="Output" value="IÂ2C, PWM"/>
+                                    <attribute name="Resolution" value="14-bit"/>
+                                    <attribute name="MF" value="AMS"/>
+                                    <attribute name="Supply_Voltage_V" value="3.3 or 5.0"/>
+                                    <attribute name="footprint_variant_name_2" value="Level A"/>
+                                    <attribute name="footprint_variant_name_1" value="Level B"/>
+                                    <attribute name="Features" value="IÂ2C, PWM, In System Programmable"/>
+                                    <attribute name="package" value="TSSOP-14"/>
+                                </technology>
+                            </technologies>
+                        </device>
+                    </devices>
+                </deviceset>
+            </devicesets>
+        </library>
+    </drawing>
+</eagle>

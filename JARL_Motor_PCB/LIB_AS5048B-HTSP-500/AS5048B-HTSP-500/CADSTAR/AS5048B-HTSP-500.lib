@@ -1,0 +1,18 @@
+.AS5048B-HTSP-500 :1 ;Board Mount Hall Effect / Magnetic Sensors 14-bit rotary position sensor
+SOP65P640X120-14N
+*STM IC
+*NGS
+*PLB 1="SDA" 2="SCL" 3="A2" 4="A1" 5="TEST_1" 6="TEST_2" 7="TEST_3" 8="TEST_4" 9="TEST_5" 10="TEST_6" 11="VDD5V" 12="VDD3V" 13="GND" 14="PWM"
+*MXP 14
+*DFN AS5048B-HTSP-500
+~!Manufacturer_Name (ams)
+~!Manufacturer_Part_Number (AS5048B-HTSP-500)
+~!RS Part Number (-)
+~!RS Price/Stock (-)
+~!Arrow Part Number (AS5048B-HTSP-500)
+~!Link Arrow Price/Stock (https://www.arrow.com/en/products/as5048b-htsp-500/ams-ag)
+~!Link Datasheet (http://ams.com/eng/content/download/438523/1341157/143016)
+~!Height (1.2mm)
+~!3D_Model (AS5048B-HTSP-500)
+AS5048B-HTSP-500
+1.1!U 2.1!U 3.1!U 4.1!U 5.1!U 6.1!U 7.1!U 14.1!U 13.1!U 12.1!U 11.1!U 10.1!U 9.1!U 8.1!U 

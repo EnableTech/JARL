@@ -67,56 +67,28 @@ void loop() {
   int v5 = digitalRead(B5);
   int v6 = digitalRead(B6);
 
-  mysensor.angleR(U_RAW, true);
-  double d1 = normDeg(mysensor.angleR(U_DEG, false) - 90);
-  mysensor2.angleR(U_RAW, true);
-  double d2 = normDeg(mysensor2.angleR(U_DEG, false));
-  Serial.print(d1);
-  Serial.print("\t\t");
-  Serial.println(d2);
-  double e1 = toRad(d1);
-  double e2 = toRad(d2);
-  double ax = upper * cos(e1) + lower * cos(e1 + e2);
-  double ay = upper * sin(e1) + lower * sin(e1 + e2);
-  /*
-  if (v1 == HIGH && v2 == LOW) {
-    double ix = ax;
-    double iy = ay + 0.5;
-    double a1 = atan(iy/ix) - acos((u2 + (ix * ix) + (iy * iy) - l2) / (2 * upper * sqrt((ix * ix) + (iy * iy))));
-    double a2 = PI - acos((u2 + l2 - (ix * ix) - (iy * iy)) / (2 * upper * lower));
-    stepper1.rotate(toDeg(a1) - d1);
-    stepper2.rotate(toDeg(a2) - d2);
-  }
-  if (v2 == HIGH && v1 == LOW) {
-    double ix = ax;
-    double iy = ay - 0.5;
-    double a1 = atan(iy/ix) - acos((u2 + (ix * ix) + (iy * iy) - l2) / (2 * upper * sqrt((ix * ix) + (iy * iy))));
-    double a2 = PI - acos((u2 + l2 - (ix * ix) - (iy * iy)) / (2 * upper * lower));
-    stepper1.rotate(toDeg(a1) - d1);
-    stepper2.rotate(toDeg(a2) - d2);
-  }
-
-  if (v3 == HIGH && v4 == LOW) {
-    double ix = ax + 0.5;
-    double iy = ay;
-    double a1 = atan(iy/ix) - acos((u2 + (ix * ix) + (iy * iy) - l2) / (2 * upper * sqrt((ix * ix) + (iy * iy))));
-    double a2 = PI - acos((u2 + l2 - (ix * ix) - (iy * iy)) / (2 * upper * lower));
-    stepper1.rotate(toDeg(a1) - d1);
-    stepper2.rotate(toDeg(a2) - d2);
-  }
-  if (v4 == HIGH && v3 == LOW) {
-    double ix = ax + 0.5;
-    double iy = ay;
-    double a1 = atan(iy/ix) - acos((u2 + (ix * ix) + (iy * iy) - l2) / (2 * upper * sqrt((ix * ix) + (iy * iy))));
-    double a2 = PI - acos((u2 + l2 - (ix * ix) - (iy * iy)) / (2 * upper * lower));
-    stepper1.rotate(toDeg(a1) - d1);
-    stepper2.rotate(toDeg(a2) - d2);
-  }
-
+  //if (v1 || v2 || v3 || v4) {
+    mysensor.angleR(U_RAW, true);
+    double d1 = normDeg(mysensor.angleR(U_DEG, false) - 90);
+    mysensor2.angleR(U_RAW, true);
+    double d2 = normDeg(mysensor2.angleR(U_DEG, false));
+    Serial.print(d1);
+    Serial.print("\t\t");
+    Serial.println(d2);
+    /*
+    double r1 = toRad(d1);
+    double r2 = toRad(d2);
+    double x = upper * cos(r1) + lower * cos(r1 + r2) + v1 * (0.5) + v2 * (-0.5);
+    double y = upper * sin(r1) + lower * sin(r1 + r2) + v3 * (0.5) + v4 * (-0.5);
+    stepper1.rotate(angle1(x, y) - d1);
+    stepper2.rotate(angle2(x, y) - d2);
+    */
+  //}
+/*
   if (v5 == HIGH && v6 == LOW) {
     stepper3.move(5);
   }
-  if (v6 == HIGH && v5 == LOW) {
+  else if (v6 == HIGH) {
     stepper3.move(-5);
   }
 */
@@ -124,21 +96,33 @@ void loop() {
   delay(1000);
 }
 
-double toRad(double d){
-  return d * 2 * PI / 360;
+// Converts an angle in degrees to radians (with normalization)
+double toRad(double d) {
+  return normDeg(d) * 2 * PI / 360;
 }
 
-double toDeg(double d){
+// Converts an angle in radians to degrees (with normalization)
+double toDeg(double d) {
   return normDeg(d * 360 / (2 * PI));
 }
 
-double normDeg(double d){
-  if(d < 0){
+// Normalizes an angle in degrees to one where 0 <= theta < 360
+double normDeg(double d) {
+  if (d < 0) {
     return normDeg(d + 360);
   }
-  else if(d >= 360){
+  else if (d >= 360) {
     return normDeg(d - 360);
   }
   return d;
 }
 
+// Returns the intended angle 1 in degrees given intended x and y
+double angle1 (double x, double y) {
+  return toDeg(atan(y / x) - acos((u2 + (x * x) + (y * y) - l2) / (2 * upper * sqrt((x * x) + (y * y)))));
+}
+
+// Returns the intended angle 2 in degrees given intended x and y
+double angle2 (double x, double y) {
+  return toDeg(PI - acos((u2 + l2 - (x * x) - (y * y)) / (2 * upper * lower)));
+}

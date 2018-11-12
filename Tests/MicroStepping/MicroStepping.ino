@@ -40,8 +40,8 @@ void setup() {
 void loop() {
     //getAngles();
     
-    stepper1.move(10);
-    stepper2.move(10);
-    stepper3.move(10);
+    stepper1.move(5);
+    stepper2.move(5);
+    stepper3.move(5);
     delayMicroseconds(1);
 }

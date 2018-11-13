@@ -13,10 +13,11 @@ AMS_AS5048B mysensor2(0x44);
 #define RPM 120
 #define MICROSTEPS 32
 
-double upper = 6;
-double lower = 6;
+double upper = 4;
+double lower = 4;
 double u2 = upper * upper;
 double l2 = lower * lower;
+double ul2 = (upper + lower) * (upper + lower);
 
 #define DIR1 3
 #define STP1 4
@@ -67,33 +68,48 @@ void loop() {
   int v5 = digitalRead(B5);
   int v6 = digitalRead(B6);
 
-  //if (v1 || v2 || v3 || v4) {
+  if (v1 || v2 || v3 || v4) {
     mysensor.angleR(U_RAW, true);
     double d1 = normDeg(mysensor.angleR(U_DEG, false) - 90);
     mysensor2.angleR(U_RAW, true);
     double d2 = normDeg(mysensor2.angleR(U_DEG, false));
+    /*
     Serial.print(d1);
     Serial.print("\t\t");
     Serial.println(d2);
-    /*
+    */
     double r1 = toRad(d1);
     double r2 = toRad(d2);
-    double x = upper * cos(r1) + lower * cos(r1 + r2) + v1 * (0.5) + v2 * (-0.5);
-    double y = upper * sin(r1) + lower * sin(r1 + r2) + v3 * (0.5) + v4 * (-0.5);
-    stepper1.rotate(angle1(x, y) - d1);
-    stepper2.rotate(angle2(x, y) - d2);
+    double x = upper * cos(r1) + lower * cos(r1 + r2) + v1 * (0.05) + v2 * (-0.05);
+    double y = upper * sin(r1) + lower * sin(r1 + r2) + v3 * (0.05) + v4 * (-0.05);
+    /*
+    Serial.print("(");
+    Serial.print(upper * cos(r1) + lower * cos(r1+ r2));
+    Serial.print(", ");
+    Serial.print(upper * sin(r1) + lower * sin(r1+ r2));
+    Serial.print(")");
+    Serial.print("\t\t");
+    Serial.print("(");
+    Serial.print(x);
+    Serial.print(", ");
+    Serial.print(y);
+    Serial.println(")");
     */
-  //}
-/*
+    if (x * x + y * y <= ul2) {
+      stepper1.rotate(normDeg(toDeg(atan(y / x) - acos((u2 + (x * x) + (y * y) - l2) / (2 * upper * sqrt((x * x) + (y * y))))) - 180) - normDeg(d1 - 180));
+      stepper2.rotate(toDeg(PI - acos((u2 + l2 - (x * x) - (y * y)) / (2 * upper * lower))) - d2);
+    }
+  }
+
   if (v5 == HIGH && v6 == LOW) {
     stepper3.move(5);
   }
   else if (v6 == HIGH) {
     stepper3.move(-5);
   }
-*/
+
   delayMicroseconds(1);
-  delay(1000);
+  //delay(1000); // REMEMBER TO COMMENT THIS OUT
 }
 
 // Converts an angle in degrees to radians (with normalization)
@@ -116,7 +132,7 @@ double normDeg(double d) {
   }
   return d;
 }
-
+/*
 // Returns the intended angle 1 in degrees given intended x and y
 double angle1 (double x, double y) {
   return toDeg(atan(y / x) - acos((u2 + (x * x) + (y * y) - l2) / (2 * upper * sqrt((x * x) + (y * y)))));
@@ -126,3 +142,4 @@ double angle1 (double x, double y) {
 double angle2 (double x, double y) {
   return toDeg(PI - acos((u2 + l2 - (x * x) - (y * y)) / (2 * upper * lower)));
 }
+*/

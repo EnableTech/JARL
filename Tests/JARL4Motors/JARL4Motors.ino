@@ -14,32 +14,37 @@ AMS_AS5048B encoder1(0x44);
 #define RPM 120
 #define MICROSTEPS 32
 
-double upper = 4;
-double lower = 4;
-double u2 = upper * upper;
-double l2 = lower * lower;
-double ul2 = (upper + lower) * (upper + lower);
+const double upper = 10.9;
+const double lower = 8.3;
+const double u2 = upper * upper;
+const double l2 = lower * lower;
+const double ul2 = (upper + lower) * (upper + lower);
 
-#define DIR0 3
-#define STP0 4
-#define DIR1 5
-#define STP1 6
-#define DIR2 7
-#define STP2 8
+#define LINEAR_DIR 2
+#define LINEAR_STP 3
+#define SHOULDER_DIR 4
+#define SHOULDER_STP 5
+#define ELBOW_DIR 6
+#define ELBOW_STP 7
+#define GRIPPER_DIR 8
+#define GRIPPER_STP 9
 
-#define B0 9
-#define B1 10
-#define B2 11
-#define B3 12
-#define B4 13
-#define B5 2
+#define BACK 10
+#define FORWARD 11
+#define LEFT 12
+#define RIGHT 13
+#define CLOSE A1
+#define OPEN A0
+#define DOWN A3
+#define UP A2
 
-DRV8825 stepper0(MOTOR_STEPS, DIR0, STP0);
-DRV8825 stepper1(MOTOR_STEPS, DIR1, STP1);
-DRV8825 stepper2(MOTOR_STEPS, DIR2, STP2);
+DRV8825 linear(MOTOR_STEPS, LINEAR_DIR, LINEAR_STP);
+DRV8825 shoulder(MOTOR_STEPS, SHOULDER_DIR, SHOULDER_STP);
+DRV8825 elbow(MOTOR_STEPS, ELBOW_DIR, ELBOW_STP);
+DRV8825 gripper(MOTOR_STEPS, GRIPPER_DIR, GRIPPER_STP);
 
-#define PINS_LEN 6
-int pins[] = {B0, B1, B2, B3, B4, B5};
+#define PINS_LEN 8
+int pins[] = {BACK, FORWARD, LEFT, RIGHT, CLOSE, OPEN, DOWN, UP};
 int vals[PINS_LEN];
 double x;
 double y;
@@ -51,16 +56,12 @@ double curr_x;
 double curr_y;
 
 void setup() {
+        Serial.begin(9600);
   // Motor setup  
-  stepper0.begin(RPM);
-  stepper0.enable();
-  stepper0.setMicrostep(MICROSTEPS);
-  stepper1.begin(RPM);
-  stepper1.enable();
-  stepper1.setMicrostep(MICROSTEPS);
-  stepper2.begin(RPM);
-  stepper2.enable();
-  stepper2.setMicrostep(MICROSTEPS);
+  setupMotor(linear);
+  setupMotor(shoulder);
+  setupMotor(elbow);
+  setupMotor(gripper);
 
   // Input pin setup
   for (int i = 0; i < PINS_LEN; i++) pinMode(pins[i], INPUT);
@@ -86,14 +87,16 @@ void loop() {
       x = temp_x;
       y = temp_y;
       if(abs(x - curr_x) > 0.01 || abs(y - curr_y) > 0.01){
-        stepper0.rotate((toDeg(atan(y / x) - acos((u2 + (x * x) + (y * y) - l2) / (2 * upper * sqrt((x * x) + (y * y)))) - PI) - normDeg(angle0 - 180)));
-        stepper1.rotate(-(toDeg(-acos((u2 + l2 - (x * x) - (y * y)) / (2 * upper * lower))) - normDeg(angle1 - 180)));
+        shoulder.rotate(-((toDeg(atan(y / x) - acos((u2 + (x * x) + (y * y) - l2) / (2 * upper * sqrt((x * x) + (y * y)))) - PI) - normDeg(angle0))));
+        elbow.rotate(-(-(toDeg(-acos((u2 + l2 - (x * x) - (y * y)) / (2 * upper * lower))) - normDeg(angle1 - 180 - 90))));
       }
     }
   }
 
-  if (vals[4] == HIGH && vals[5] == LOW) stepper2.move(5);
-  else if (vals[5] == HIGH) stepper2.move(-5);
+  if (vals[4] == HIGH && vals[5] == LOW) gripper.move(5);
+  else if (vals[5] == HIGH) gripper.move(-5);
+  if (vals[6] == HIGH && vals[7] == LOW) linear.move(5);
+  else if (vals[7] == HIGH) linear.move(-5);
   delayMicroseconds(1);
 }
 
@@ -117,8 +120,18 @@ double normDeg(double d) {
 // Reads both encoders and assigns values into angle0 and angle1
 // Uses encoder values to calculate current x and y and assigns values into curr_x and curr_y
 double compute(){
-  angle0 = normDeg(encoder0.angleR(U_DEG, true) - 90);
-  angle1 = normDeg(encoder1.angleR(U_DEG, true));
+  angle0 = normDeg(encoder0.angleR(U_DEG, true) - 90 - 180);
+  angle1 = normDeg(encoder1.angleR(U_DEG, true) - 90);
+  Serial.println(angle0);
+  Serial.println(angle1);
+  Serial.println();
   curr_x = upper * cos(toRad(angle0)) + lower * cos(toRad(angle0 + angle1));
   curr_y = upper * sin(toRad(angle0)) + lower * sin(toRad(angle0 + angle1));
 }
+
+void setupMotor(DRV8825 motor){
+  motor.begin(RPM);
+  motor.enable();
+  motor.setMicrostep(MICROSTEPS);
+}
+

@@ -15,7 +15,7 @@ const double ufw2 = (U + F + W) * (U + F + W);
 
 // Movement vars
 #define SMP_ANG PI
-#define INCR 0.5
+#define INCR 0.1
 
 // Motor specs
 #define MOTOR_STEPS 200

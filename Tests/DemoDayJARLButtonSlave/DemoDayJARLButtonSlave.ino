@@ -8,7 +8,7 @@
 // Servo pins and limits
 #define S1 4
 #define S2 5
-#define UL 180
+#define UL 90
 #define LL 0
 
 // Button pins
@@ -33,7 +33,7 @@ Servo servo2;
 int pins[] = {RGHT, LEFT, FWRD, BACK, UPWD, DOWN, OPEN, CLOS};
 int pos = 90;
 int temp_pos = 0;
-int incr = 10;
+int incr = 1;
 bool r = false;
 bool l = false;
 bool f = false;
@@ -59,6 +59,7 @@ void loop() {
     pos = temp_pos;
     moveBothToPos();
   }
+  delay(10);
 }
 
 void requestEvent() {
@@ -79,6 +80,6 @@ void readPins() {
 }
 
 void moveBothToPos() {
-  servo1.write(pos);
-  servo2.write(-pos);
+  servo1.write(180 + pos);
+  servo2.write(180 - pos);
 }

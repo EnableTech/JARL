@@ -8,10 +8,10 @@
 #define START_NODE 1 // The starting I2C address of slave nodes
 
 // Dimensions in inches of upper arm, forearm, wrist
-#define U 6
-#define F 4
-#define W 2
-const double ufw2 = (U + F + W) * (U + F + W);
+#define UPPER 6
+#define FORE 4
+#define WRIST 2
+const double ufw2 = (UPPER + FORE + WRIST) * (UPPER + FORE + WRIST);
 
 // Movement vars
 #define SMP_ANG PI
@@ -177,15 +177,15 @@ void moveToPos() {
 }
 
 void calcXYZ(int calc_b, int calc_s, int calc_e) {
-  r = U * cos(calc_s) + F * cos(calc_e + calc_s - PI);
-  calc_x = sqrt(r * r + W * W) * cos(calc_b - atan(W / r));
-  calc_y = sqrt(r * r + W * W) * sin(calc_b - atan(W / r));
-  calc_z = U * sin(calc_s) + F * sin(calc_e + calc_s - PI);
+  r = UPPER * cos(calc_s) + FORE * cos(calc_e + calc_s - PI);
+  calc_x = sqrt(r * r + WRIST * WRIST) * cos(calc_b - atan(WRIST / r));
+  calc_y = sqrt(r * r + WRIST * WRIST) * sin(calc_b - atan(WRIST / r));
+  calc_z = UPPER * sin(calc_s) + FORE * sin(calc_e + calc_s - PI);
 }
 
 void calcBSE(int calc_x, int calc_y, int calc_z) {
-  r = sqrt(calc_x * calc_x + calc_y * calc_y - W * W);
-  calc_b = atan(W / r) + atan(calc_y / calc_x);
-  calc_s = atan(calc_z / r) + cos((calc_z * calc_z + r * r + U * U - F * F) / (2 * U * sqrt(calc_z * calc_z + r * r)));
-  calc_e = acos((U * U + F * F - calc_z * calc_z - r * r) / (2 * U * F));
+  r = sqrt(calc_x * calc_x + calc_y * calc_y - WRIST * WRIST);
+  calc_b = atan(WRIST / r) + atan(calc_y / calc_x);
+  calc_s = atan(calc_z / r) + cos((calc_z * calc_z + r * r + UPPER * UPPER - FORE * FORE) / (2 * UPPER * sqrt(calc_z * calc_z + r * r)));
+  calc_e = acos((UPPER * UPPER + FORE * FORE - calc_z * calc_z - r * r) / (2 * UPPER * FORE));
 }
